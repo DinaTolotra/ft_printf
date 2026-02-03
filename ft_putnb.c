@@ -1,0 +1,46 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnb.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/03 19:30:54 by todina-r          #+#    #+#             */
+/*   Updated: 2026/02/03 21:13:08 by todina-r         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+static long long	ft_abs(long long lnb)
+{
+	if (lnb >= 0)
+		return (lnb);
+	return (-lnb);
+}
+
+int	ft_putnb_rec(long lnb)
+{
+	int	count;
+
+	count = 1;
+	if (lnb >= 10)
+		count += ft_putnb_rec(lnb / 10);
+	ft_putchar((lnb % 10) + '0');
+	return (count);
+}
+
+int	ft_putnb(long nb)
+{
+	long long	lnb;
+	int			count;
+
+	count = 0;
+	lnb = ft_abs(nb);
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		count++;
+	}
+	return (count + ft_putnb_rec(lnb));
+}
