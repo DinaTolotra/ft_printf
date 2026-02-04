@@ -36,13 +36,17 @@ $(LDEPS:%=%.a) $(LDEPS:%=%.h): $(LDEPS)
 
 all: $(NAME)
 
-clean:
-	$(RM) $(OBJS)
-	$(MAKE) -C $(LDEPS) clean
+$(LDEPS:%=%_clean):
+	$(MAKE) -C $(@:%_clean=%) clean
 
-fclean: clean
+$(LDEPS:%=%_fclean):
+	$(MAKE) -C $(@:%_fclean=%) fclean
+
+clean: $(LDEPS:%=%_clean)
+	$(RM) $(OBJS)
+
+fclean: clean $(LDEPS:%=%_fclean)
 	$(RM) $(NAME) $(LDEPS:%=%.a) $(LDEPS:%=%.h)
-	$(MAKE) -C $(LDEPS) fclean
 
 re: fclean all
 

@@ -19,13 +19,13 @@ The resulting function, `ft_printf()`, is compiled into a static library named *
   int ft_printf(const char *, ...);
 ```
 
- - Buffer management of the original `printf()` must **not** be implemented
- - Supported conversions: `cspdiuxX%`
- - Output must be compared against the original `printf()`
- - The library must be created using the `ar` command
+ * Buffer management of the original `printf()` must **not** be implemented
+ * Supported conversions: `cspdiuxX%`
+ * Output must be compared against the original `printf()`
+ * The library must be created using the `ar` command
   (`libtool` is strictly forbidden)
- - The library file `libftprintf.a` must be located at the root of the repository
- - The header file must be named `ft_printf.h`
+ * The library file `libftprintf.a` must be located at the root of the repository
+ * The header file must be named `ft_printf.h`
 
 ## Supported Conversions
 
@@ -73,7 +73,7 @@ cc main.c libftprintf.a libft.a
 ### Example
 
 ```c
-ft_printf("Hello %s! You have %d new messages.\n", "Alice", 5);
+ft_printf("%s %d!\n", "Hello", 42);
 ```
 
 ## Algorithm and Data Structure Choices
