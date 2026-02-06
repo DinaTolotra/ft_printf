@@ -43,6 +43,15 @@ The resulting function, `ft_printf()`, is compiled into a static library named *
 
 ## Instructions
 
+### Download
+
+To get the project, in your terminal, run:
+
+```bash
+git clone <repo_link> ft_printf
+cd ft_printf
+```
+
 ### Compilation
 
 To compile the library, simply run:
