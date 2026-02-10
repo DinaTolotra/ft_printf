@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 11:08:57 by todina-r          #+#    #+#             */
-/*   Updated: 2026/02/03 20:04:50 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/02/10 11:43:37 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,17 @@ int	ft_printf(const char *f, ...)
 
 	index = 0;
 	count = 0;
+	if (!f)
+		return (-1);
 	va_start(list, f);
 	while (f[index])
 	{
-		if (f[index] == '%')
-			count += handle_conv(f[++index], list);
-		else
+		if (f[index] == '%' && f[++index] != 0)
+			count += handle_conv(f[index], list);
+		else if (f[index])
 			count += ft_putchar(f[index]);
-		index++;
+		if (f[index])
+			index++;
 	}
 	va_end(list);
 	return (count);
@@ -44,7 +47,7 @@ static int	handle_conv(char c, va_list list)
 	else if (c == 'p')
 		return (ft_print_ptr_l(list));
 	else if (c == 'd')
-		return (ft_print_dec_l(list));
+		return (ft_print_int_l(list));
 	else if (c == 'i')
 		return (ft_print_int_l(list));
 	else if (c == 'u')

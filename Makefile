@@ -3,7 +3,7 @@ NAME = libftprintf.a
 CC = cc
 AR = ar rcs
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 LDEPS = libft
 SRCS = ft_putnb_base.c\
@@ -14,7 +14,6 @@ SRCS = ft_putnb_base.c\
 	ft_print_char_l.c\
 	ft_print_str_l.c\
 	ft_print_ptr_l.c\
-	ft_print_dec_l.c\
 	ft_print_int_l.c\
 	ft_print_uint_l.c\
 	ft_print_lhex_l.c\
