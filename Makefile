@@ -5,7 +5,9 @@ AR = ar rcs
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -g
 
-LDEPS = libft
+SOURCE = source
+INCLUDE = include
+
 SRCS = ft_putnb_base.c\
 	ft_putchar.c\
 	ft_putstr.c\
@@ -19,34 +21,38 @@ SRCS = ft_putnb_base.c\
 	ft_print_lhex_l.c\
 	ft_print_uhex_l.c\
 	ft_printf.c
+SRCS := $(SRCS:%=$(SOURCE)/%)
 OBJS = $(SRCS:.c=.o)
 
-$(NAME): $(OBJS) $(LDEPS:%=%.a) $(LDEPS:%=%.h)
+.DEFAULT_GOAL := all
+
+all: $(NAME) libft.a
+
+$(NAME): $(OBJS)
 	$(AR) $@ $^
 
-$(LDEPS):
-	$(MAKE) -C $@
+$(SOURCE)/%.o: $(SOURCE)/%.c $(INCLUDE)/libft.h
+	$(CC) $(CFLAGS) -c $< -o $@ -I$(INCLUDE)
 
-$(LDEPS:%=%.a) $(LDEPS:%=%.h): $(LDEPS)
-	cp $^/$@ $@
+libft.a: libft/libft.a
+	cp -p $^ $@
 
-%.o: %.c $(LDEPS)
-	$(CC) $(CFLAGS) -c $< -o $@ $(LDEPS:%=-I%)
+libft/libft.a:
+	$(MAKE) -C libft
 
-all: $(NAME)
+include/libft.h: libft/libft.h
+	cp -p $^ $@
 
-$(LDEPS:%=%_clean):
-	$(MAKE) -C $(@:%_clean=%) clean
-
-$(LDEPS:%=%_fclean):
-	$(MAKE) -C $(@:%_fclean=%) fclean
-
-clean: $(LDEPS:%=%_clean)
+clean:
 	$(RM) $(OBJS)
+	$(MAKE) -C libft clean
 
-fclean: clean $(LDEPS:%=%_fclean)
-	$(RM) $(NAME) $(LDEPS:%=%.a) $(LDEPS:%=%.h)
+fclean: clean
+	$(RM) $(NAME)
+	$(RM) libft.a
+	$(RM) $(INCLUDE)/libft.h
+	$(MAKE) -C libft fclean
 
 re: fclean all
 
-.PHONY: re fclean clean all $(LDEPS)
+.PHONY: re fclean clean all
