@@ -8,10 +8,10 @@ CFLAGS = -Wall -Wextra -Werror -g
 SOURCE = source
 INCLUDE = include
 
-SRCS = ft_putnb_base.c\
+SRCS = ft_putunb_base.c\
 	ft_putchar.c\
 	ft_putstr.c\
-	ft_putnb.c\
+	ft_putlnb.c\
 	ft_putunb.c\
 	ft_print_char_l.c\
 	ft_print_str_l.c\

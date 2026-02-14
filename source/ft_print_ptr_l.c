@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 20:30:16 by todina-r          #+#    #+#             */
-/*   Updated: 2026/02/03 21:12:46 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/02/14 08:40:02 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	ft_print_lhex(uintptr_t nb)
 	char	*base;
 
 	base = "0123456789abcdef";
-	return (ft_putnb_base(nb, base));
+	return (ft_putunb_base(nb, base));
 }
 
 int	ft_print_ptr_l(va_list list)

@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 13:40:34 by todina-r          #+#    #+#             */
-/*   Updated: 2026/02/03 21:09:17 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/02/14 08:40:34 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ int	ft_print_uhex_l(va_list list)
 
 	nb = va_arg(list, unsigned int);
 	base = "0123456789ABCDEF";
-	return (ft_putnb_base(nb, base));
+	return (ft_putunb_base(nb, base));
 }

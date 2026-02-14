@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnb.c                                         :+:      :+:    :+:   */
+/*   ft_putlnb.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 19:30:54 by todina-r          #+#    #+#             */
-/*   Updated: 2026/02/03 21:13:08 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/02/14 08:39:51 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,18 @@ static long long	ft_abs(long long lnb)
 	return (-lnb);
 }
 
-int	ft_putnb_rec(long lnb)
+int	ft_putlnb_rec(long lnb)
 {
 	int	count;
 
 	count = 1;
 	if (lnb >= 10)
-		count += ft_putnb_rec(lnb / 10);
+		count += ft_putlnb_rec(lnb / 10);
 	ft_putchar((lnb % 10) + '0');
 	return (count);
 }
 
-int	ft_putnb(long nb)
+int	ft_putlnb(long nb)
 {
 	long long	lnb;
 	int			count;
@@ -42,5 +42,5 @@ int	ft_putnb(long nb)
 		ft_putchar('-');
 		count++;
 	}
-	return (count + ft_putnb_rec(lnb));
+	return (count + ft_putlnb_rec(lnb));
 }
