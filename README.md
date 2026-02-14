@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by **todina-r**.*
+*This project has been created as part of the 42 curriculum by todina-r.*
 
 # ft_printf
 
@@ -10,22 +10,6 @@ The goal of this project is to gain a deeper understanding of variadic functions
 By recreating `printf()` from scratch, this project focuses on parsing format strings, handling variable arguments, and converting different data types into formatted output — all while matching the behavior of the original `printf()` as closely as possible within the project constraints.
 
 The resulting function, `ft_printf()`, is compiled into a static library named **libftprintf.a**, which can be reused in other C projects.
-
-## Project Requirements
-
-- Recode the `printf()` function from libc
-- Function prototype:
-```c
-  int ft_printf(const char *, ...);
-```
-
- * Buffer management of the original `printf()` must **not** be implemented
- * Supported conversions: `cspdiuxX%`
- * Output must be compared against the original `printf()`
- * The library must be created using the `ar` command
-  (`libtool` is strictly forbidden)
- * The library file `libftprintf.a` must be located at the root of the repository
- * The header file must be named `ft_printf.h`
 
 ## Supported Conversions
 
@@ -63,8 +47,15 @@ make
 This will generate libftprintf and libft static libraries:
 
 ```bash
-libftprintf.a
-libft.a
+./libftprintf.a
+./libft.a
+```
+
+And copy of the headers at `include` folder:
+
+```bash
+./include/ft_printf.h
+./include/libft.h
 ```
 
 ### Usage
@@ -76,7 +67,7 @@ Include the header file and link the library and its dependency when compiling y
 ```
 
 ```bash
-cc main.c libftprintf.a libft.a
+cc main.c libftprintf.a libft.a -I<header_dir>
 ```
 
 ### Example
