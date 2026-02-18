@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 11:08:57 by todina-r          #+#    #+#             */
-/*   Updated: 2026/02/10 11:43:37 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/02/18 07:16:22 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,23 @@ int	ft_printf(const char *f, ...)
 	int			index;
 	va_list		list;
 	int			count;
+	int			t_count;
 
 	index = 0;
 	count = 0;
 	if (!f)
 		return (-1);
 	va_start(list, f);
-	while (f[index])
+	while (count != -1 && f[index])
 	{
-		if (f[index] == '%' && f[++index] != 0)
-			count += handle_conv(f[index], list);
-		else if (f[index])
-			count += ft_putchar(f[index]);
-		if (f[index])
-			index++;
+		t_count = 0;
+		if (f[index++] == '%')
+			t_count = handle_conv(f[index], list);
+		else
+			t_count = ft_putchar(f[index - 1]);
+		count += t_count;
+		if (t_count == -1)
+			count = -1;
 	}
 	va_end(list);
 	return (count);
@@ -58,5 +61,7 @@ static int	handle_conv(char c, va_list list)
 		return (ft_print_uhex_l(list));
 	else if (c == '%')
 		return (ft_putchar('%'));
-	return (0);
+	else if (c)
+		return (ft_putchar('%'));
+	return (-1);
 }
