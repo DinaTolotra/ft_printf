@@ -32,7 +32,7 @@ The resulting function, `ft_printf()`, is compiled into a static library named *
 To get the project, in your terminal, run:
 
 ```bash
-git clone <repo_url> ft_printf
+git clone git@vogsphere.42antananarivo.mg:vogsphere/intra-uuid-c1c3d04b-2cb8-4f56-b230-144d2bdefc3d-7287408-todina-r ft_printf
 cd ft_printf
 ```
 
