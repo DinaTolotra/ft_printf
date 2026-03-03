@@ -24,20 +24,20 @@ SRCS = ft_putunb_base.c\
 SRCS := $(SRCS:%=$(SOURCE)/%)
 OBJS = $(SRCS:.c=.o)
 
+LIBFT = libft/libft.a
+
 .DEFAULT_GOAL := all
 
-all: $(NAME) libft.a
+all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(AR) $@ $^
+$(NAME): $(OBJS) $(LIBFT)
+	cp -p $(LIBFT) $(NAME)
+	$(AR) $(NAME) $(OBJS)
 
 $(SOURCE)/%.o: $(SOURCE)/%.c $(INCLUDE)/libft.h
 	$(CC) $(CFLAGS) -c $< -o $@ -I$(INCLUDE)
 
-libft.a: libft/libft.a
-	cp -p $^ $@
-
-libft/libft.a:
+$(LIBFT):
 	$(MAKE) -C libft
 
 include/libft.h: libft/libft.h
@@ -49,7 +49,6 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
-	$(RM) libft.a
 	$(RM) $(INCLUDE)/libft.h
 	$(MAKE) -C libft fclean
 
