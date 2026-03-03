@@ -32,7 +32,7 @@ The resulting function, `ft_printf()`, is compiled into a static library named *
 To get the project, in your terminal, run:
 
 ```bash
-git clone git@vogsphere.42antananarivo.mg:vogsphere/intra-uuid-c1c3d04b-2cb8-4f56-b230-144d2bdefc3d-7287408-todina-r ft_printf
+git clone <repo_url> ft_printf
 cd ft_printf
 ```
 
@@ -44,11 +44,10 @@ To compile the library, simply run:
 make
 ```
 
-This will generate libftprintf and libft static libraries:
+This will generate libftprintf static libraries:
 
 ```bash
 ./libftprintf.a
-./libft.a
 ```
 
 And copy of the headers at `include` folder:
@@ -67,7 +66,7 @@ Include the header file and link the library and its dependency when compiling y
 ```
 
 ```bash
-cc main.c libftprintf.a libft.a -I<header_dir>
+cc main.c -L<lib_dir> -lftprintf -I<header_dir>
 ```
 
 ### Example
