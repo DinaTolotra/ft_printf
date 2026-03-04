@@ -3,7 +3,7 @@ NAME = libftprintf.a
 CC = cc
 AR = ar rcs
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 SOURCE = source
 INCLUDE = include
