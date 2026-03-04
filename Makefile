@@ -40,7 +40,7 @@ $(SOURCE)/%.o: $(SOURCE)/%.c $(INCLUDE)/libft.h
 $(LIBFT):
 	$(MAKE) -C libft
 
-include/libft.h: libft/libft.h
+$(INCLUDE)/libft.h: libft/libft.h
 	cp -p $^ $@
 
 clean:
