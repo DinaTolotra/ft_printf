@@ -6,7 +6,7 @@
 /*   By: todina-r <todina-r@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 11:08:57 by todina-r          #+#    #+#             */
-/*   Updated: 2026/03/03 08:52:31 by todina-r         ###   ########.fr       */
+/*   Updated: 2026/03/04 06:49:03 by todina-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ int	ft_printf(const char *f, ...)
 	va_end(list);
 	return (count);
 }
-
-//	"%s a %i"
 
 static int	handle_conv(char c, va_list list)
 {
