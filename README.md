@@ -27,15 +27,6 @@ The resulting function, `ft_printf()`, is compiled into a static library named *
 
 ## Instructions
 
-### Download
-
-To get the project, in your terminal, run:
-
-```bash
-git clone <repo_url> ft_printf
-cd ft_printf
-```
-
 ### Compilation
 
 To compile the library, simply run:
@@ -44,13 +35,13 @@ To compile the library, simply run:
 make
 ```
 
-This will generate libftprintf static libraries:
+This will generate libftprintf static libraries at the root of the repo:
 
 ```bash
 ./libftprintf.a
 ```
 
-And copy of the headers at `include` folder:
+And a copy of the headers at `include` folder:
 
 ```bash
 ./include/ft_printf.h
@@ -59,7 +50,7 @@ And copy of the headers at `include` folder:
 
 ### Usage
 
-Include the header file and link the library and its dependency when compiling your program:
+Include the header file and link the library and when compiling your program:
 
 ```c
 #include "ft_printf.h"
@@ -133,7 +124,6 @@ Each printed character contributes to a counter that tracks the total number of 
 
 AI tools were used for:
 
-* Clarifying project requirements
 * Improving documentation structure and clarity
 * Reviewing algorithm explanations and wording
 
